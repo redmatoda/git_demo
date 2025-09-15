@@ -6,7 +6,6 @@
   <img src="./Findex-logo.png" width="800" height="600" alt="Findex Logo"/>
 </a>
 
----
 📌 지수 정보 제공 웹사이트<br>
 💡 목표: 사용자 친화적인 지수 정보와 자동화 데이터 제공<br>
 
