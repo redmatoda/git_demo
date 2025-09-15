@@ -36,7 +36,7 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
   ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=flat&logo=gradle&logoColor=white)
   ![Temurin](https://img.shields.io/badge/Temurin-17-339933?style=flat&logoColor=white)
 ---
-## 구현 기능
+## ⚡ 구현 기능
 ### 1) Open API 연동
 - 공공데이터포털 등 외부 Open API 연동 준비/구성 (인증키/요청 파라미터/쿼터 관리)
 ### 2) 지수 정보 관리
@@ -62,37 +62,36 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
 - 지수 차트 (이동평균선 등 보조지표)
 - 지수 성과 분석 랭킹
 
-
-
 ---
-## 📊 Class-diagram
+## 🌐 구현 홈페이지
+Railway를 이용하여 배포하였습니다.<br>
+https://findex-production-84b9.up.railway.app/#/dashboard
 
-프로젝트의 주요 엔티티 클래스 구조는 다음과 같습니다. 수평적 레이아웃으로 설계되어 있어 클래스 간의 관계를 쉽게 파악할 수 있습니다.
 
-클래스 다이어그램은 `class-diagram.puml` 파일에서 확인할 수 있으며, PlantUML을 사용하여 생성되었습니다.
 
 ---
 ## 📝 프로젝트 구조
 
+<details>
+  <summary>프로젝트 구조 보기</summary>
+
 ```text
 .
-├── HELP.md
-├── README.md
-├── build/
-│   └── reports/problems/problems-report.html
-├── build.gradle
-├── class-diagram.puml
-├── gradle/wrapper/
-│   ├── gradle-wrapper.jar
-│   └── gradle-wrapper.properties
-├── gradlew
-├── gradlew.bat
-├── settings.gradle
-└── src/
+├── 📝 README.md
+├── 📝 HELP.md
+├── 📄 build.gradle
+├── 📄 class-diagram.puml
+├── 📂 gradle/wrapper/
+│   ├── 📄 gradle-wrapper.jar
+│   └── 📄 gradle-wrapper.properties
+├── 📄 gradlew
+├── 📄 gradlew.bat
+├── 📄 settings.gradle
+└── 📂 src/
     ├── main/
     │   ├── java/com/codeit/findex/
-    │   │   ├── FindexApplication.java
-    │   │   ├── autosync/
+    │   │   ├── 🚀 FindexApplication.java
+    │   │   ├── 📂 autosync/
     │   │   │   ├── controller/AutoSyncConfigController.java
     │   │   │   ├── dto/
     │   │   │   │   ├── AutoSyncConfigDto.java
@@ -105,7 +104,7 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │   │   │   │   ├── AutoSyncConfigQueryRepositoryImpl.java
     │   │   │   │   └── AutoSyncConfigRepository.java
     │   │   │   └── service/AutoSyncConfigService.java
-    │   │   ├── common/
+    │   │   ├── 📂 common/
     │   │   │   ├── dto/PageResponse.java
     │   │   │   ├── entity/BaseEntity.java
     │   │   │   ├── enums/SortDirection.java
@@ -125,10 +124,10 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │   │   │           ├── IndexDataException.java
     │   │   │           ├── IndexInfoException.java
     │   │   │           └── SyncJobException.java
-    │   │   ├── config/
+    │   │   ├── 📂 config/
     │   │   │   ├── QuerydslConfig.java
     │   │   │   └── WebConfig.java
-    │   │   ├── data/
+    │   │   ├── 📂 data/
     │   │   │   ├── ApiDataDBService.java
     │   │   │   ├── AutoIndexDataSyncService.java
     │   │   │   ├── DataSyncRepository.java
@@ -140,7 +139,7 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │   │   │   │   ├── Items.java
     │   │   │   │   └── Response.java
     │   │   │   └── scheduler/IndexApiScheduler.java
-    │   │   ├── indexdata/
+    │   │   ├── 📂 indexdata/
     │   │   │   ├── controller/
     │   │   │   │   ├── IndexDataApi.java
     │   │   │   │   ├── IndexDataController.java
@@ -169,7 +168,7 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │   │   │   └── service/
     │   │   │       ├── IndexDataExtraService.java
     │   │   │       └── IndexDataService.java
-    │   │   ├── indexinfo/
+    │   │   ├── 📂 indexinfo/
     │   │   │   ├── controller/IndexInfoController.java
     │   │   │   ├── dto/
     │   │   │   │   ├── IndexInfoCreateRequest.java
@@ -183,7 +182,7 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │   │   │   │   ├── IndexInfoQueryRepositoryImpl.java
     │   │   │   │   └── IndexInfoRepository.java
     │   │   │   └── service/IndexInfoService.java
-    │   │   └── syncjob/
+    │   │   └── 📂 syncjob/
     │   │       ├── controller/SyncJobController.java
     │   │       ├── dto/
     │   │       │   ├── IndexDataSyncRequest.java
@@ -200,13 +199,22 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
     │       ├── schema.sql
     │       └── static/
     │           ├── assets/
-    │           │   ├── Findex-logo.png
+    │           │   ├── 🖼 Findex-logo.png
     │           │   ├── index-CGZC7fCi.js
-    │           │   └── index-Dtn62Xmo.css
+    │   │       │   └── index-Dtn62Xmo.css
     │           ├── favicon.ico
     │           └── index.html
     └── test/java/com/codeit/findex/
         └── FindexApplicationTests.java
 ```
+</details>
+
+---
+
+## 📊 Class-diagram
+
+프로젝트의 주요 엔티티 클래스 구조는 다음과 같습니다. 수평적 레이아웃으로 설계되어 있어 클래스 간의 관계를 쉽게 파악할 수 있습니다.
+
+클래스 다이어그램은 `class-diagram.puml` 파일에서 확인할 수 있으며, PlantUML을 사용하여 생성되었습니다.
 
 ---
