@@ -2,7 +2,10 @@
 
 프로젝트 상세 구현 기능은 <b>노션</b>에서 확인할 수 있습니다.(<b>이미지 클릭</b>)<br>
 
-[![Findex Logo](./Findex-logo.png)](https://example.com)
+<a href="https://example.com">
+  <img src="./Findex-logo.png" width="800" height="600" alt="Findex Logo"/>
+</a>
+
 ---
 📌 지수 정보 제공 웹사이트<br>
 💡 목표: 사용자 친화적인 지수 정보와 자동화 데이터 제공<br>
