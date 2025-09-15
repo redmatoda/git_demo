@@ -72,3 +72,141 @@ Findex는 외부 Open API와 연동하여 금융 지수 데이터를 제공하�
 클래스 다이어그램은 `class-diagram.puml` 파일에서 확인할 수 있으며, PlantUML을 사용하여 생성되었습니다.
 
 ---
+## 📝 프로젝트 구조
+
+```text
+.
+├── HELP.md
+├── README.md
+├── build/
+│   └── reports/problems/problems-report.html
+├── build.gradle
+├── class-diagram.puml
+├── gradle/wrapper/
+│   ├── gradle-wrapper.jar
+│   └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+└── src/
+    ├── main/
+    │   ├── java/com/codeit/findex/
+    │   │   ├── FindexApplication.java
+    │   │   ├── autosync/
+    │   │   │   ├── controller/AutoSyncConfigController.java
+    │   │   │   ├── dto/
+    │   │   │   │   ├── AutoSyncConfigDto.java
+    │   │   │   │   ├── AutoSyncConfigUpdateRequest.java
+    │   │   │   │   └── CursorPageResponse.java
+    │   │   │   ├── entity/AutoSyncConfig.java
+    │   │   │   ├── mapper/AutoSyncMapper.java
+    │   │   │   ├── repository/
+    │   │   │   │   ├── AutoSyncConfigQueryRepository.java
+    │   │   │   │   ├── AutoSyncConfigQueryRepositoryImpl.java
+    │   │   │   │   └── AutoSyncConfigRepository.java
+    │   │   │   └── service/AutoSyncConfigService.java
+    │   │   ├── common/
+    │   │   │   ├── dto/PageResponse.java
+    │   │   │   ├── entity/BaseEntity.java
+    │   │   │   ├── enums/SortDirection.java
+    │   │   │   ├── enums/SourceType.java
+    │   │   │   └── error/
+    │   │   │       ├── ErrorResponse.java
+    │   │   │       ├── GlobalExceptionHandler.java
+    │   │   │       ├── errorcode/
+    │   │   │       │   ├── AutoSyncErrorCode.java
+    │   │   │       │   ├── BaseErrorCode.java
+    │   │   │       │   ├── IndexDataErrorCode.java
+    │   │   │       │   ├── IndexInfoErrorCode.java
+    │   │   │       │   └── SyncJobErrorCode.java
+    │   │   │       └── exception/
+    │   │   │           ├── AutoSyncException.java
+    │   │   │           ├── BaseException.java
+    │   │   │           ├── IndexDataException.java
+    │   │   │           ├── IndexInfoException.java
+    │   │   │           └── SyncJobException.java
+    │   │   ├── config/
+    │   │   │   ├── QuerydslConfig.java
+    │   │   │   └── WebConfig.java
+    │   │   ├── data/
+    │   │   │   ├── ApiDataDBService.java
+    │   │   │   ├── AutoIndexDataSyncService.java
+    │   │   │   ├── DataSyncRepository.java
+    │   │   │   ├── IndexApiParser.java
+    │   │   │   ├── dto/
+    │   │   │   │   ├── Body.java
+    │   │   │   │   ├── Header.java
+    │   │   │   │   ├── Item.java
+    │   │   │   │   ├── Items.java
+    │   │   │   │   └── Response.java
+    │   │   │   └── scheduler/IndexApiScheduler.java
+    │   │   ├── indexdata/
+    │   │   │   ├── controller/
+    │   │   │   │   ├── IndexDataApi.java
+    │   │   │   │   ├── IndexDataController.java
+    │   │   │   │   ├── IndexDataExtraApi.java
+    │   │   │   │   ├── IndexDataExtraController.java
+    │   │   │   │   ├── PeriodType.java
+    │   │   │   │   └── SortField.java
+    │   │   │   ├── dto/
+    │   │   │   │   ├── ChartPoint.java
+    │   │   │   │   ├── ChartPointDto.java
+    │   │   │   │   ├── IndexChartDto.java
+    │   │   │   │   ├── IndexDataCreateRequest.java
+    │   │   │   │   ├── IndexDataDto.java
+    │   │   │   │   ├── IndexDataUpdateRequest.java
+    │   │   │   │   ├── IndexPerformanceDto.java
+    │   │   │   │   ├── IndexPerformanceWithRankDto.java
+    │   │   │   │   └── PerformanceRankDto.java
+    │   │   │   ├── entity/IndexData.java
+    │   │   │   ├── mapper/IndexDataMapper.java
+    │   │   │   ├── repository/
+    │   │   │   │   ├── IndexDataExtraRepository.java
+    │   │   │   │   ├── IndexDataExtraRepositoryImpl.java
+    │   │   │   │   ├── IndexDataQueryRepository.java
+    │   │   │   │   ├── IndexDataQueryRepositoryImpl.java
+    │   │   │   │   └── IndexDataRepository.java
+    │   │   │   └── service/
+    │   │   │       ├── IndexDataExtraService.java
+    │   │   │       └── IndexDataService.java
+    │   │   ├── indexinfo/
+    │   │   │   ├── controller/IndexInfoController.java
+    │   │   │   ├── dto/
+    │   │   │   │   ├── IndexInfoCreateRequest.java
+    │   │   │   │   ├── IndexInfoDto.java
+    │   │   │   │   ├── IndexInfoSummaryDto.java
+    │   │   │   │   └── IndexInfoUpdateRequest.java
+    │   │   │   ├── entity/IndexInfo.java
+    │   │   │   ├── mapper/IndexInfoMapper.java
+    │   │   │   ├── repository/
+    │   │   │   │   ├── IndexInfoQueryRepository.java
+    │   │   │   │   ├── IndexInfoQueryRepositoryImpl.java
+    │   │   │   │   └── IndexInfoRepository.java
+    │   │   │   └── service/IndexInfoService.java
+    │   │   └── syncjob/
+    │   │       ├── controller/SyncJobController.java
+    │   │       ├── dto/
+    │   │       │   ├── IndexDataSyncRequest.java
+    │   │       │   └── SyncJobDto.java
+    │   │       ├── entity/SyncJob.java
+    │   │       ├── mapper/SyncJobMapper.java
+    │   │       ├── repository/
+    │   │       │   ├── SyncJobQueryRepository.java
+    │   │       │   ├── SyncJobQueryRepositoryImpl.java
+    │   │       │   └── SyncJobRepository.java
+    │   │       └── service/SyncJobService.java
+    │   └── resources/
+    │       ├── application.yml
+    │       ├── schema.sql
+    │       └── static/
+    │           ├── assets/
+    │           │   ├── Findex-logo.png
+    │           │   ├── index-CGZC7fCi.js
+    │           │   └── index-Dtn62Xmo.css
+    │           ├── favicon.ico
+    │           └── index.html
+    └── test/java/com/codeit/findex/
+        └── FindexApplicationTests.java
+```
+
+---
